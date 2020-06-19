@@ -1,6 +1,6 @@
 package br.com.silva.app.service.mapper;
 
-import br.com.silva.app.domain.Album;
+import br.com.silva.app.model.domain.Album;
 import br.com.silva.app.rest.dto.AlbumDTO;
 import org.mapstruct.Mapper;
 

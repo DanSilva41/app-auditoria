@@ -1,4 +1,4 @@
-package br.com.silva.app.domain;
+package br.com.silva.app.model.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,21 +10,21 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(schema = "dominio", name = "album")
-public class Album {
+@Table(schema = "dominio", name = "musica")
+public class Musica {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long id;
-
-    @Column(nullable = false, length = 80)
-    private String titulo;
+    private Integer id;
 
     @Column(nullable = false, length = 60)
-    private String autor;
+    private String titulo;
+
+    @Column(nullable = false)
+    private String letra;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "produtor_id", nullable = false)
-    private Produtor produtor;
+    @JoinColumn(name = "album_id", nullable = false)
+    private Album album;
 }

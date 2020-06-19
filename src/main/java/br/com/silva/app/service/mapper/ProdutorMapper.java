@@ -1,6 +1,6 @@
 package br.com.silva.app.service.mapper;
 
-import br.com.silva.app.domain.Produtor;
+import br.com.silva.app.model.domain.Produtor;
 import br.com.silva.app.rest.dto.ProdutorDTO;
 import org.mapstruct.Mapper;
 
