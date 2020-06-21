@@ -17,7 +17,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "seq_usuario", unique = true, nullable = false)
+    @Column(name = "seq_usuario", nullable = false)
     private Integer seqUsuario;
 
     @NotNull

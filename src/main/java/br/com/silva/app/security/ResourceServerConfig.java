@@ -33,9 +33,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated();
+        http.authorizeRequests()
+                .anyRequest().permitAll()
+                .and().csrf().disable()
+                .headers().frameOptions().disable();
     }
 
     private PasswordEncoder passwordEncoder() {

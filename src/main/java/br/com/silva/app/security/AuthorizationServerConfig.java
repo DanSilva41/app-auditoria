@@ -67,7 +67,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
-        JwtAccessTokenConverter accessTokenConverter = new CustomJwtTokenConverter(usuarioService);
+        JwtAccessTokenConverter accessTokenConverter = new CustomJwtTokenConverter();
         accessTokenConverter.setSigningKey("app-auditoria-login");
         return accessTokenConverter;
     }
