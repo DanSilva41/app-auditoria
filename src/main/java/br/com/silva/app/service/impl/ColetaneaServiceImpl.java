@@ -7,6 +7,9 @@ import br.com.silva.app.rest.dto.AlbumDTO;
 import br.com.silva.app.rest.dto.MusicaDTO;
 import br.com.silva.app.rest.dto.ProdutorDTO;
 import br.com.silva.app.service.ColetaneaService;
+import br.com.silva.app.service.mapper.AlbumMapper;
+import br.com.silva.app.service.mapper.MusicaMapper;
+import br.com.silva.app.service.mapper.ProdutorMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +23,22 @@ class ColetaneaServiceImpl implements ColetaneaService {
     private AlbumRepository albumRepository;
     private MusicaRepository musicaRepository;
 
+    private ProdutorMapper produtorMapper;
+    private AlbumMapper albumMapper;
+    private MusicaMapper musicaMapper;
+
     @Override
     public List<ProdutorDTO> buscarProdutores() {
-        return null;
+        return produtorMapper.paraListaDTO(produtorRepository.findAll());
     }
 
     @Override
     public List<AlbumDTO> buscarAlbuns() {
-        return null;
+        return albumMapper.paraListaDTO(albumRepository.findAll());
     }
 
     @Override
     public List<MusicaDTO> buscarMusicas() {
-        return null;
+        return musicaMapper.paraListaDTO(musicaRepository.findAll());
     }
 }

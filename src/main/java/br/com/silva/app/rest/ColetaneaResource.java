@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,7 +17,8 @@ import java.util.List;
 @Slf4j
 @AllArgsConstructor
 @Tag(name = "coletanea", description = "API para busca de produtores, álbuns e músicas")
-@RestController(value = "/coletanea")
+@RestController
+@RequestMapping("/coletanea")
 public class ColetaneaResource {
 
     private ColetaneaService coletaneaService;

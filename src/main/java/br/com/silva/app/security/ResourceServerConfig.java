@@ -14,12 +14,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableResourceServer
 @EnableWebSecurity
 @AllArgsConstructor
 @Slf4j
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
+    private AppSecurityConfig appSecurityConfig;
 
     @Qualifier("appUserDetailsService")
     private UserDetailsService userDetailsService;
@@ -33,8 +37,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        String[] aPermitAll = appSecurityConfig.getPermitRequests().builderPermitAll().toArray(new String[0]);
+        String[] aPermitGet = appSecurityConfig.getPermitRequests().builderPermitGet().toArray(new String[0]);
+        log.info("Configuring authorizeRequests authorizing ALL request to with filter " + Arrays.toString(aPermitAll));
+        log.info("Configuring authorizeRequests authorizing GET request to with filter " + Arrays.toString(aPermitGet));
         http.authorizeRequests()
-                .anyRequest().permitAll()
+                .antMatchers(aPermitGet).permitAll()
+                .anyRequest().authenticated()
                 .and().csrf().disable()
                 .headers().frameOptions().disable();
     }
