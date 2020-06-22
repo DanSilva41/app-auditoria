@@ -1,6 +1,9 @@
 package br.com.silva.app.rest.vm;
 
+import br.com.silva.app.rest.dto.AlbumDTO;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -9,7 +12,7 @@ import lombok.*;
 @Builder
 public class LancamentoVM {
 
-    private Long idAlbum;
+    private AlbumDTO album;
     private Long idProdutor;
-    private Long idMusica;
+    private List<Integer> musicas;
 }

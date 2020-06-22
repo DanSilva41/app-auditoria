@@ -25,6 +25,6 @@ public class Musica {
     private String letra;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "album_id", nullable = false)
+    @JoinColumn(name = "album_id", nullable = true)
     private Album album;
 }
