@@ -1,16 +1,15 @@
 package br.com.silva.app.model.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Audited
@@ -30,7 +29,8 @@ public class Album {
     @Column(nullable = false, length = 60)
     private String autor;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "produtor_id", nullable = false)
+    @NotAudited
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "produtor_id")
     private Produtor produtor;
 }

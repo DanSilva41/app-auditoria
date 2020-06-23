@@ -28,7 +28,7 @@ public class AuditQueryUtils {
         // Nós o convertemos em algo útil para um acesso seguro:
         return results.stream()
                 // Use apenas os resultados do Object []:
-                .filter(x -> x instanceof Object[])
+//                .filter(x -> x instanceof Object[])
                 // Depois converta para Object []:
                 .map(x -> (Object[]) x)
                 // Transforme em AuditQueryResult:

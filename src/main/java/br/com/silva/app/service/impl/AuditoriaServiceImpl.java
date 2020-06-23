@@ -29,7 +29,7 @@ class AuditoriaServiceImpl implements AuditoriaService {
         AuditReader auditReader = this.criarLeitorAuditoria();
 
         AuditQuery auditQuery = auditReader.createQuery()
-                .forRevisionsOfEntity(Produtor.class, false, true);
+                .forRevisionsOfEntity(Produtor.class, false, false);
 
         return AuditQueryUtils.getAuditQueryResults(auditQuery, Produtor.class).stream()
                 .map(ProdutorAuditoria::getProdutorAuditoria)
@@ -41,7 +41,7 @@ class AuditoriaServiceImpl implements AuditoriaService {
         AuditReader auditReader = this.criarLeitorAuditoria();
 
         AuditQuery auditQuery = auditReader.createQuery()
-                .forRevisionsOfEntity(Album.class, false, true);
+                .forRevisionsOfEntity(Album.class, false, false);
 
         return AuditQueryUtils.getAuditQueryResults(auditQuery, Album.class).stream()
                 .map(AlbumAuditoria::getAlbumAuditoria)
@@ -53,7 +53,7 @@ class AuditoriaServiceImpl implements AuditoriaService {
         AuditReader auditReader = this.criarLeitorAuditoria();
 
         AuditQuery auditQuery = auditReader.createQuery()
-                .forRevisionsOfEntity(Musica.class, false, true);
+                .forRevisionsOfEntity(Musica.class, false, false);
 
         return AuditQueryUtils.getAuditQueryResults(auditQuery, Musica.class).stream()
                 .map(MusicaAuditoria::getMusicaAuditoria)

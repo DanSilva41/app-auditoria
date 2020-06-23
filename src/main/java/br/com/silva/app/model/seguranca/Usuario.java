@@ -1,5 +1,6 @@
 package br.com.silva.app.model.seguranca;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Usuario {
     @Column(name = "username", length = 30, unique = true, nullable = false)
     private String username;
 
+    @JsonIgnore
     @NotNull
     @Size(min = 6, max = 60)
     @Column(name = "senha", length = 60)
