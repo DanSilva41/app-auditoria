@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class AlbumDTO {
 
-    private Long id;
+    private Integer id;
     private String titulo;
     private String autor;
 }

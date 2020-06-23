@@ -13,6 +13,6 @@ import java.util.List;
 public class LancamentoVM {
 
     private AlbumDTO album;
-    private Long idProdutor;
+    private Integer idProdutor;
     private List<Integer> musicas;
 }

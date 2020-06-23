@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class ProdutorDTO {
 
-    private Long id;
+    private Integer id;
     private String nome;
 
 }

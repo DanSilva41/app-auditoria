@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class MusicaDTO {
 
-    private Long id;
+    private Integer id;
     private String titulo;
     private String letra;
 }

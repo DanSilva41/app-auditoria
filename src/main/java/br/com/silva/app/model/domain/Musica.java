@@ -3,12 +3,16 @@ package br.com.silva.app.model.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Audited
+@AuditTable(value = "aud_musica", schema = "auditoria")
 @Entity
 @Table(schema = "dominio", name = "musica")
 public class Musica {
@@ -25,6 +29,6 @@ public class Musica {
     private String letra;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "album_id", nullable = true)
+    @JoinColumn(name = "album_id")
     private Album album;
 }
